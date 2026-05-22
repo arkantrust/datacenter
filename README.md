@@ -11,7 +11,7 @@ Desarrollado por:
 
 Este repositorio contiene dos herramientas de administración para data centers:
 - Script para Windows (PowerShell 5.1+): `powershell/datacenter.ps1`
-- Script para Linux/macOS: `bash/datacenter.sh`
+- Script para Linux/macOS (Bash 4+): `bash/datacenter.sh`
 
 ## Funcionalidades
 
@@ -30,6 +30,12 @@ Ambas herramientas despliegan un menú interactivo con las siguientes opciones:
 ### PowerShell (`datacenter.ps1`)
 - Windows 10/11
 - PowerShell 5.1 o superior
+- **No requiere Administrador**
+
+### BASH (`datacenter.sh`)
+- Linux (Ubuntu/Debian/CentOS) o macOS
+- Bash 4.0 o superior
+- Se puede ejecutar sin privilegios; `sudo` mejora la cobertura de `lastlog`/`last` y los datos de memoria
 
 ## Uso
 
@@ -39,6 +45,15 @@ Ambas herramientas despliegan un menú interactivo con las siguientes opciones:
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 .\powershell\datacenter.ps1
 ```
+
+### BASH
+```bash
+chmod +x ./bash/datacenter.sh
+./bash/datacenter.sh          # o: sudo ./bash/datacenter.sh para datos completos
+```
+
+### Probar el script BASH desde Windows
+`test_bash.bat` ejecuta `datacenter.sh` dentro de un contenedor Ubuntu. **Requiere Docker Desktop** en ejecución. Alternativamente, en WSL/Linux se corre directo con `bash bash/datacenter.sh`.
 
 ## Ejemplos de salida
 
